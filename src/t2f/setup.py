@@ -30,10 +30,10 @@ buildOpts = dict(
         includes=['numpy'],
         excludes=['Tkinter'],
         #zip_includes=['smSci/sci3d.sci3d'],
-        include_files=['logo.png','icon.ico','g.tsk','g2f.cfg','gui.cfg','使用说明.pdf'],
+        include_files=['logo.png','icon.ico','g.tsk','config.cfg','gui.cfg','使用说明.doc'],
         )
 
-exeTables = [Executable("gui.py", targetName='g2f.exe', icon='icon.ico',base=base),]
+exeTables = [Executable("gui.py", targetName='t2f.exe', icon='icon.ico',base=base),]
 setup(
         name = "TileServer",
         version = version.__version__[:version.__version__.rfind('.')],

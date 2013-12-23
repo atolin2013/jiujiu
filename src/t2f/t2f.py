@@ -268,7 +268,7 @@ class google2file(object):
             os.makedirs(tmp_dir)
 
         # for test
-        self.mpcnt=1
+        # self.mpcnt=1
         if self.mpcnt<2:
             _download_single_process(total_tiles, tmp_dir, self.url, \
                     self.over_write,self.haswatermark)
