@@ -73,7 +73,7 @@ def download_g_tiles(tile_list, out_dir, strurl, over_write, print_watermark):
     
     def _write_wld(_path, level, row, col):
         _path = _path[:-3]+'wld'
-        tms = srsweb.GlobalMercator()
+        tms = srsweb.GlobalGeodetic()
         col,row = tms.TMSTile(col, row, level)
         l,t,r,b = tms.TileBounds(col, row, level)
         res = tms.Resolution(level)
@@ -222,7 +222,7 @@ class google2file(object):
     def download(self):
         def _calc_tiles(l,t,r,b, level):
             tiles = []
-            tms = srsweb.GlobalMercator() 
+            tms = srsweb.GlobalGeodetic() 
             rs,re,cs,ce = tms.calcRowColByLatLon(l,t,r,b, level) 
             for row in range(rs, re+1):
                 for col in range(cs, ce+1):
@@ -279,7 +279,7 @@ class google2file(object):
     #########################################################################
     def merge(self):
         l,t,r,b,level = self.l,self.t,self.r,self.b, self.levels
-        tms = srsweb.GlobalMercator() 
+        tms = srsweb.GlobalGeodetic() 
         rs,re,cs,ce = tms.calcRowColByLatLon(l,t,r,b, level) 
         total_pix_w, total_pix_h = (ce-cs+1)*256, (re-rs+1)*256
         out_w, out_h = self.width, self.height
@@ -322,7 +322,7 @@ class google2file(object):
     def check_tiles(self):
         """ 检查下载瓦片坐标完整性 """
         l,t,r,b,level = self.l,self.t,self.r,self.b, self.levels
-        tms = srsweb.GlobalMercator() 
+        tms = srsweb.GlobalGeodetic() 
         rs,re,cs,ce = tms.calcRowColByLatLon(l,t,r,b, level) 
         out_dir = self.out
         tmp_dir = os.path.join(out_dir, TEMP_DIR)
