@@ -1,4 +1,16 @@
 # -*- coding:gbk -*-
+###############################################################################
+#
+# Project:  rabbit-gis software
+# Purpose:  网络地图下载
+# Author:   wenyulin.lin@gmail.com
+#
+###############################################################################
+# Copyright (c) 2013, (www.atolin.net)
+# 
+# Beijing, China.
+###############################################################################
+
 
 import os, sys
 from cx_Freeze import setup, Executable
